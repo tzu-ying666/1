@@ -1,18 +1,21 @@
 <template>   <!--html -->
   <div id = "app">
-    <h1>ToDo List</h1>
+    <h1>My ToDo List</h1>
+    <!--
     <img alt = "Vue logo" src="./assets/logo.png">
-    <!-- 
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     -->
     <p>{{ message }}</p>
     <input v-model = "message">
     <button type="button" v-on:click="buttonClick">Button</button>
     <br>
-    <a>{{arr}}</a>
     <div class = "list">
       <ul>
-        <li v-for="item in arr" :key="item">{{ item }}</li>
+        <li v-for="(item, index) in arr" :key="item + '_' + index">
+          第{{index}}項目 : {{ item }}
+          <button type="button" v-on:click="buttonDelete(index)">ok</button>
+        </li>
+        
       </ul>
     </div>
   </div>
@@ -31,7 +34,7 @@ export default {
     return {
       message: '' ,
       recordList: '',
-      arr: [1,2,3,4,5,6],
+      arr: ['123'],
     }
   },
   watch:{
@@ -43,13 +46,16 @@ export default {
     buttonClick () {  //buttonClick: function ()
       const addTodo = this.message;
       this.recordList = addTodo;
-
       this.arr.push(addTodo);
-
       this.message = '';
-      
-      console.log(addTodo);
-    }
+      // console.log(addTodo);
+    },
+
+    buttonDelete (index) {  //index是arr位置
+      this.arr.splice(index,1);
+      this.message = '';
+      console.log(index);
+    },
   },
   created() {},
 
@@ -59,7 +65,7 @@ export default {
 
 <style>  /*css*/
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -68,8 +74,11 @@ export default {
 }
 
 .list{
-  width:1000px;
-  height:1000px;
   display: flex;
+  width: 1000px;
+  height: 1000px;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 600px
 }
 </style>
