@@ -62,7 +62,8 @@ export default {
       recordBtnState: 'all', // all、completed
     }
   },
-  watch:{
+
+  watch: {
     checkedList (arrList) {
       console.log('已完成項目:', arrList);
       for (let ii = 0; ii < arrList.length; ii++) {
