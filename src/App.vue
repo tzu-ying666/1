@@ -8,10 +8,10 @@
     <p>{{ message }}</p>
     <input type="text"
      v-model = "message"
-     @keydown.enter="buttonClick">
+     @keydown.enter="buttonClick" key="" class="textBox">
     <button type="button" id="button" v-on:click="buttonClick">Add Todo</button>
     <br>
-    <div v-show="isShow">No ToDos, ya!</div>
+    <h2 v-show="isShow">No ToDos, ya!</h2>
     <br>
     <div class = "list">
       <ul>
@@ -177,7 +177,7 @@ export default {
 
 </script>
 
-<style lang="scss">  /*css*/
+<style lang="scss" scoped>  /*css*/
 body {
   margin: 0px;
   > #app {
@@ -189,44 +189,56 @@ h1 {
   margin: 0px;
 }
 
-/* #app {
+#app {
+  height: 100vh;
   font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   background-color: #FAD9E2;
-} */
+} 
 
 #button {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
+  font-size: 34px;
   margin-left: 8px;
   border-radius: 50%;
   background-color: #F7B8BC;
   border: 0px;
   outline:none;
-
 }
 
 #button1 {
-  width: 60px;
-  height: 20px;
+  width: 80px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 30%;
   border: 0px;
   background-color: #F7B8BC;
 }
 
 #button2 {
-  width: 90px;
+  width: 150px;
   height: 40px;
+  font-size: 22px;
+  border-radius: 20%;
   border: 0px;
   background-color: #F7B8BC;
-  margin: auto;
+  margin: 10px;
 }
 
 #app li {
   list-style:none;
+  font-size: 26px;
   margin-bottom: 10px;
+}
+
+.textBox {
+  height: 30px;
+  width: 220px;
+  font-size: 20px;
 }
 
 .list {

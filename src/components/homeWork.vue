@@ -61,8 +61,9 @@ export default {
 
   #app2 li {
     list-style:none;
-    width: 100px;
+    width: 150px;
     display: flex;
+    font-size: 20px;
     flex-direction: column;
     justify-content: center;
     background-color: #F7B8BC;
@@ -74,7 +75,7 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
+    justify-content: center;
   }
 
 
